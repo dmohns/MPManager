@@ -2,11 +2,11 @@ version: '3.1'
 
 services:
   'laravel':
+    container_name: laravel
     build:
       context: Docker/
       dockerfile: DockerfileLaravelProd
     image: laravel/php:8
-    container_name: laravel
     restart: unless-stopped
     depends_on:
       - maria
@@ -67,7 +67,7 @@ services:
       dockerfile: DockerfileNpm
     volumes:
       - ./Website/htdocs/mpmanager:/home/node/app
-    command:  /bin/sh -c "/tmp/start.sh"
+    command: /bin/sh -c "/tmp/start.sh"
 
   'redis':
     image: redis:5
